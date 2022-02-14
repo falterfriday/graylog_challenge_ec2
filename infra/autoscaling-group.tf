@@ -22,7 +22,7 @@ resource "aws_launch_configuration" "lc_graylog" {
   associate_public_ip_address = false
 
   security_groups = [
-    aws_security_group.private_ag_graylog.id,
+    aws_security_group.private_sg_graylog.id,
     aws_security_group.instance_sg_graylog.id
   ]
 
@@ -43,7 +43,7 @@ resource "aws_autoscaling_group" "asg_graylog" {
   desired_capacity = var.instance_desired_capacity
 
   vpc_zone_identifier  = module.aws_vpc.private_subnets
-  target_group_arns    = [aws_alb_target_group.tg_graylog.arn]
+  target_group_arns    = [aws_alb_target_group.tg_https_graylog.arn]
   termination_policies = ["OldestLaunchConfiguration", "ClosestToNextInstanceHour", "Default"]
   health_check_type    = "ELB"
 
