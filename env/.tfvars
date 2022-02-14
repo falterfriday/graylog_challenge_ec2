@@ -12,19 +12,24 @@
  *
  ********************************************************/
 
-/********************************************************
- ***************** NEEDS TO BE UPDATED ******************
- ********************************************************/
+
+/********************************************************************************************
+ *********************************** NEEDS TO BE UPDATED ***********************************/
 
 # AWS REGION
 # e.g. us-east-1
-region = ""
+region = "" 
+
+# AVAILABILITY ZONES
+# e.g. ["us-west-1a", "us-west-1c"]
+availability_zones = []
 
 # WILDCARD CERT ARN
+# Note: Certificate ARN has to belong to the same regions as the region variable above
 # e.g. arn:aws:acm:us-east-1:123456789:certificate/234iuhf46-awef-481b-9232-1234567890abc
 certificate_arn = ""
 
-# ROUTE53
+# ROUTE53 HOSTED ZONE ID
 # e.g. Z1234567890ABCDEFG
 route53_zone_id = ""
 
@@ -32,13 +37,12 @@ route53_zone_id = ""
 # e.g. hello-graylog.fakedomain.com
 route53_dns_record_name = ""
 
-/********************************************************/
-/********************************************************/
+/********************************************************************************************
+ ********************************************************************************************/
 
 
 # VPC SPECIFIC VARIABLES
 vpc_cidr           = "10.0.0.0/16"
-availability_zones = ["us-east-1a", "us-east-1b"]
 
 # SUBNET SPECIFIC VARIABLES
 public_subnets   = ["10.0.10.0/24", "10.0.20.0/24"]
