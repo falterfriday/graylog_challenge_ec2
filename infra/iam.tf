@@ -2,10 +2,10 @@
  * 
  * GRAYLOG CHALLENGE - Terraform IAM 
  *
- * Location: env/.tfvars
+ * Location: infra/iam.tf
  *
  * Description:
- *  - Provisions IAM Roles, Policies, and Documents
+ *  - Provisions IAM Roles, Policies, and Profiles
  * 
  * Author: Patrick Todd <patrick.a.todd@gmail.com>
  *

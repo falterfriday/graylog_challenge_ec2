@@ -13,7 +13,7 @@
 
 /*
  * AWS REGION
- * Used: main.tf:34
+ * Used: main.tf:33
  */
 variable "region" {
   type        = string
@@ -31,6 +31,7 @@ variable "vpc_cidr" {
 
 /*
  * AVAILABILITY ZONES
+ * Used: vpc.tf:30
  */
 variable "availability_zones" {
   type        = list(string)
@@ -39,7 +40,7 @@ variable "availability_zones" {
 
 /*
  * PUBLIC SUBNET CIDR BLOCKS
- * Used: vpc.tf:29
+ * Used: vpc.tf:32
  */
 variable "public_subnets" {
   type        = list(string)
@@ -48,7 +49,7 @@ variable "public_subnets" {
 
 /*
  * PRIVATE SUBNET CIDR BLOCKS
- * Used: vpc.tf:30
+ * Used: vpc.tf:33
  */
 variable "private_subnets" {
   type        = list(string)
@@ -57,7 +58,7 @@ variable "private_subnets" {
 
 /*
  * DATABASE SUBNET CIDR BLOCKS
- * Used: vpc.tf:31
+ * Used: vpc.tf:34
  */
 # variable "database_subnets" {
 #   type        = list(string)
@@ -66,7 +67,7 @@ variable "private_subnets" {
 
 /*
  * ENVIRONMENT
- * Used: vpc.tf:56
+ * Used: main.tf:37,40
  */
 variable "environment" {
   type        = string
@@ -75,7 +76,7 @@ variable "environment" {
 
 /*
  * APPLICATION NAME
- * Used: vpc.tf:57
+ * Used: mail.tf:37,41
  */
 variable "app_name" {
   type        = string
@@ -84,29 +85,44 @@ variable "app_name" {
 
 /*
  * OWNER
- * Used: vpc.tf:58
+ * Used: main.tf:42
  */
 variable "owner" {
   type        = string
   description = "owner"
 }
 
-
+/*
+ * INSTANCE TYPE
+ * Used: autoscaling-group.tf:18
+ */
 variable "instance_type" {
   type        = string
   description = "instance type"
 }
 
+/*
+ * INSTANCE MIN SIZE
+ * Used: autoscaling-group.tf:41
+ */
 variable "instance_min_size" {
   type        = string
   description = "instance type"
 }
 
+/*
+ * INSTANCE MAX SIZE
+ * Used: autoscaling-group.tf:42
+ */
 variable "instance_max_size" {
   type        = string
   description = "instance type"
 }
 
+/*
+ * INSTANCE DESIRED CAPACITY
+ * Used: autoscaling-group.tf:43
+ */
 variable "instance_desired_capacity" {
   type        = string
   description = "instance type"

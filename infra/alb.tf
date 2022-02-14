@@ -11,6 +11,7 @@
  *
  ******************************************************/
 
+# APPLICATION LOAD BALANCER
 resource "aws_alb" "alb_graylog" {
   name               = "alb-${local.name}"
   internal           = false
@@ -24,6 +25,7 @@ resource "aws_alb" "alb_graylog" {
   tags = merge(local.tags, { Name = "alb-${local.name}" })
 }
 
+# ALB LISTENER - HTTP - PORT 8080
 resource "aws_alb_listener" "alb_listener_http_graylog" {
   load_balancer_arn = aws_alb.alb_graylog.arn
   port              = "8080"
@@ -35,6 +37,7 @@ resource "aws_alb_listener" "alb_listener_http_graylog" {
   }
 }
 
+# ALB TARGET GROUP - PORT 8080
 resource "aws_alb_target_group" "tg_graylog" {
   name     = "tg-${local.name}"
   port     = 8080
@@ -48,6 +51,6 @@ resource "aws_alb_target_group" "tg_graylog" {
     unhealthy_threshold = 10
     timeout             = 120
     interval            = 300
-    matcher             = "200" # has to be HTTP 200 or fails
+    matcher             = "200"
   }
 }

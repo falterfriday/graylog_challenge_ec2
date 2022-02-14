@@ -2,7 +2,7 @@
  * 
  * GRAYLOG CHALLENGE - Terraform Variables
  *
- * Location: env/.tfvars
+ * Location: infra/data.tf
  *
  * Description:
  *  - Variables passed to Terraform 
@@ -16,8 +16,10 @@
  *
  ******************************************************/
 
+# CURRENT AWS REGION REFERENCE
 data "aws_region" "current" {}
 
+# AMI - AMAZON LINUX 2
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
   owners      = ["amazon"]
@@ -28,6 +30,7 @@ data "aws_ami" "amazon_linux_2" {
   }
 }
 
+# IAM POLICY - ASSUME ROLE
 data "aws_iam_policy_document" "assume_role_policy_graylog" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -39,6 +42,7 @@ data "aws_iam_policy_document" "assume_role_policy_graylog" {
   }
 }
 
+# IAM POLICY - REQUIRED ROLES
 data "aws_iam_policy_document" "instance_policy_graylog" {
   statement {
     actions = [

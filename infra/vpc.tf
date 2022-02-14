@@ -27,11 +27,10 @@ module "aws_vpc" {
 
   name = "${local.name}-vpc"
   cidr = var.vpc_cidr
-  azs  = ["us-east-1a", "us-east-1b"]
+  azs  = var.availability_zones
 
   public_subnets   = var.public_subnets
   private_subnets  = var.private_subnets
-  # database_subnets = var.database_subnets
 
   enable_nat_gateway   = true
   create_igw           = true
@@ -44,7 +43,6 @@ module "aws_vpc" {
   nat_eip_tags             = merge(local.tags, tomap({ Name = "nat-eip-${local.name}" }))
   public_subnet_tags       = merge(local.tags, tomap({ Name = "subnet-public-${local.name}", Subnet = "private" }))
   private_subnet_tags      = merge(local.tags, tomap({ Name = "subnet-private-${local.name}", Subnet = "private" }))
-  # database_subnet_tags     = merge(local.tags, tomap({ Name = "subnet-database-${local.name}", Subnet = "database" }))
   public_route_table_tags  = merge(local.tags, tomap({ Name = "rtbl-public-${local.name}" }))
   private_route_table_tags = merge(local.tags, tomap({ Name = "rtbl-private-${local.name}" }))
 }
