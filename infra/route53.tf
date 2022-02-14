@@ -23,3 +23,7 @@ resource "aws_route53_record" "route53_dns_record_graylog" {
     evaluate_target_health = true
   }
 }
+
+output "application_url" {
+  value = "https://${var.route53_dns_record_name}"
+}
