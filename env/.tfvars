@@ -12,8 +12,29 @@
  *
  ********************************************************/
 
+/********************************************************
+ ***************** NEEDS TO BE UPDATED ******************
+ ********************************************************/
+
 # AWS REGION
-region = "us-east-1"
+# e.g. us-east-1
+region = ""
+
+# WILDCARD CERT ARN
+# e.g. arn:aws:acm:us-east-1:123456789:certificate/234iuhf46-awef-481b-9232-1234567890abc
+certificate_arn = ""
+
+# ROUTE53
+# e.g. Z1234567890ABCDEFG
+route53_zone_id = ""
+
+# DNS RECORD NAME
+# e.g. hello-graylog.fakedomain.com
+route53_dns_record_name = ""
+
+/********************************************************/
+/********************************************************/
+
 
 # VPC SPECIFIC VARIABLES
 vpc_cidr           = "10.0.0.0/16"
