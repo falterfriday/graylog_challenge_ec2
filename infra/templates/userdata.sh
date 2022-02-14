@@ -10,7 +10,8 @@ exec > /var/log/user-data.log 2>&1
 sleep 10
 
 # Update EC2 instance packages and install Git
-sudo yum update -y && sudo install git -y
+sudo yum update -y
+sudo install git -y
 
 # Install Docker runtime
 sudo amazon-linux-extras install -y docker
