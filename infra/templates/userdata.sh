@@ -32,4 +32,4 @@ cd /home/ec2-user && git clone https://github.com/falterfriday/graylog_challenge
 cd /home/ec2-user/graylog_challenge_ec2/app && sudo docker build -t graylog/hello-graylog .
 
 # Create and run docker container
-sudo docker run --name graylog-challenge -d -p 8080:8080 graylog/hello-graylog
+sudo docker run --name hello-graylog -d -p 8080:8080 graylog/hello-graylog
