@@ -1,2 +1,6 @@
+# terrafor files
+*/*terraform*
+*/*state*
+
 # vscode files
 .history
