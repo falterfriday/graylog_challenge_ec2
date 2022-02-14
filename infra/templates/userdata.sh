@@ -26,7 +26,7 @@ sudo service docker start
 sudo yum install git -y
 
 # Clone code repository
-cd /home/ec2-user && git https://github.com/falterfriday/graylog_challenge_ec2.git
+cd /home/ec2-user && git clone https://github.com/falterfriday/graylog_challenge_ec2.git
 
 # Build docker image
 cd /home/ec2-user/graylog_challenge_ec2/app && sudo docker build -t graylog/hello-graylog .
