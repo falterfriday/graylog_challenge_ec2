@@ -11,7 +11,7 @@
  *
  ********************************************************/
 
-# Key Pair Generation (private and public)
+# KEY PAIR GENERATION
 resource "tls_private_key" "kp_private_graylog" {
   algorithm = "RSA"
   rsa_bits  = 4096
