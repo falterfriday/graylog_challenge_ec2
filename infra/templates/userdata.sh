@@ -1,6 +1,12 @@
 #!/bin/bash
+
+# Print out commands as they're executed
 set -x
+
+# Push user-data to output to console logs
 exec > /var/log/user-data.log 2>&1
+
+# Sleep!
 sleep 10
 
 # Update EC2 instance packages and install Git
@@ -23,4 +29,4 @@ cd /home/ec2-user && git https://github.com/falterfriday/graylog_challenge_ec2.g
 cd /home/ec2-user/graylog_challenge_ec2/app && sudo docker build -t graylog/hello-graylog .
 
 # Create and run docker container
-sudo docker run --name graylog-challenge -d -p 8080:80 graylog-challenge/app
+sudo docker run --name graylog-challenge -d -p 8080:8008 graylog-challenge/app
