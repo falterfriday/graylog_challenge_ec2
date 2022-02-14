@@ -14,8 +14,8 @@
 
 resource "aws_route53_record" "route53_dns_record_graylog" {
   zone_id = var.route53_zone_id
-  name = "${var.route53_dns_record_name}"
-  type = "A"
+  name    = var.route53_dns_record_name
+  type    = "A"
 
   alias {
     name                   = aws_alb.alb_graylog.dns_name

@@ -86,7 +86,7 @@ resource "aws_security_group" "instance_sg_graylog" {
 # SECURITY GROUP RULE - INSTANCE INGRESS - PORT 443
 resource "aws_security_group_rule" "instance_sgr_ingress_graylog" {
   depends_on = [aws_security_group.instance_sg_graylog]
-  
+
   type              = "ingress"
   from_port         = 443
   to_port           = 443

@@ -16,11 +16,7 @@
  *
  ******************************************************/
 
-
-/*
- * AWS VPC Module
- * Documentaion: https://registry.terraform.io/modules/terraform-aws-modules/vpc
- */
+# AWS VPC Module
 module "aws_vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "3.12.0"
@@ -29,8 +25,8 @@ module "aws_vpc" {
   cidr = var.vpc_cidr
   azs  = var.availability_zones
 
-  public_subnets   = var.public_subnets
-  private_subnets  = var.private_subnets
+  public_subnets  = var.public_subnets
+  private_subnets = var.private_subnets
 
   enable_nat_gateway   = true
   create_igw           = true

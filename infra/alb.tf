@@ -28,13 +28,13 @@ resource "aws_alb" "alb_graylog" {
 
 # ALB LISTENER - HTTPS
 resource "aws_alb_listener" "alb_listener_https_graylog" {
-  depends_on        = [aws_alb_target_group.tg_https_graylog]
+  depends_on = [aws_alb_target_group.tg_https_graylog]
 
   load_balancer_arn = aws_alb.alb_graylog.arn
   port              = "443"
   protocol          = "HTTPS"
   certificate_arn   = var.certificate_arn
-   
+
   default_action {
     target_group_arn = aws_alb_target_group.tg_https_graylog.arn
     type             = "forward"
