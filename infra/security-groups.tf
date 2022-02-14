@@ -34,18 +34,6 @@ resource "aws_security_group_rule" "sgr_private_egress_graylog" {
   security_group_id = aws_security_group.private_sg_graylog.id
 }
 
-# SECURITY GROUP RULE - SSH INGRESS
-resource "aws_security_group_rule" "sgr_ingress_private_ssh_graylog" {
-  description       = "ssh ingress"
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
-  protocol          = "tcp"
-  cidr_blocks       = module.aws_vpc.private_subnets_cidr_blocks
-  security_group_id = aws_security_group.private_sg_graylog.id
-}
-
-
 /*
  * APPLICATION LOAD BALANCER SECURITY GROUP
  */
