@@ -17,7 +17,8 @@
  */
 variable "region" {
   type        = string
-  description = "AWS region to provision assets"
+  description = "aws region to provision assets"
+  default     = "us-east-1"
 }
 
 /*
