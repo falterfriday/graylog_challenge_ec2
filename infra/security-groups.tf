@@ -14,7 +14,7 @@
 /*
  * PRIVATE SUBNET INSTANCE SECURITY GROUP
  */
-resource "aws_security_group" "private_ag_graylog" {
+resource "aws_security_group" "private_sg_graylog" {
   name                   = "private-sg-${local.name}"
   description            = "private subnet instance security group"
   vpc_id                 = module.aws_vpc.vpc_id
@@ -31,7 +31,7 @@ resource "aws_security_group_rule" "sgr_private_egress_graylog" {
   to_port           = 65535
   protocol          = "all"
   cidr_blocks       = ["0.0.0.0/0"]
-  security_group_id = aws_security_group.private_ag_graylog.id
+  security_group_id = aws_security_group.private_sg_graylog.id
 }
 
 # SECURITY GROUP RULE - SSH INGRESS
@@ -42,7 +42,7 @@ resource "aws_security_group_rule" "sgr_ingress_private_ssh_graylog" {
   to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = module.aws_vpc.private_subnets_cidr_blocks
-  security_group_id = aws_security_group.private_ag_graylog.id
+  security_group_id = aws_security_group.private_sg_graylog.id
 }
 
 
@@ -58,13 +58,13 @@ resource "aws_security_group" "alb_sg_graylog" {
   tags = merge(local.tags, tomap({ Name = "alb-sg-${local.name}" }))
 }
 
-# SECURITY GROUP RULE - ALB INGRESS - PORT 8080
-resource "aws_security_group_rule" "alb_sgr_8080_graylog" {
+# SECURITY GROUP RULE - ALB INGRESS - PORT 443
+resource "aws_security_group_rule" "alb_sgr_https_graylog" {
   depends_on = [aws_security_group.alb_sg_graylog]
 
   type              = "ingress"
-  from_port         = 8080
-  to_port           = 8080
+  from_port         = 443
+  to_port           = 443
   protocol          = "tcp"
   cidr_blocks       = ["0.0.0.0/0"]
   security_group_id = aws_security_group.alb_sg_graylog.id
@@ -83,13 +83,13 @@ resource "aws_security_group" "instance_sg_graylog" {
   tags = merge(local.tags, tomap({ Name = "instance-sg-${local.name}" }))
 }
 
-# SECURITY GROUP RULE - INSTANCE INGRESS - PORT 8080
+# SECURITY GROUP RULE - INSTANCE INGRESS - PORT 443
 resource "aws_security_group_rule" "instance_sgr_ingress_graylog" {
   depends_on = [aws_security_group.instance_sg_graylog]
   
   type              = "ingress"
-  from_port         = 8080
-  to_port           = 8080
+  from_port         = 443
+  to_port           = 443
   protocol          = "tcp"
   cidr_blocks       = [module.aws_vpc.vpc_cidr_block]
   security_group_id = aws_security_group.instance_sg_graylog.id
