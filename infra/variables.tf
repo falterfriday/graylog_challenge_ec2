@@ -57,15 +57,6 @@ variable "private_subnets" {
 }
 
 /*
- * DATABASE SUBNET CIDR BLOCKS
- * Used: vpc.tf:34
- */
-# variable "database_subnets" {
-#   type        = list(string)
-#   description = "database subnet cidr blocks"
-# }
-
-/*
  * ENVIRONMENT
  * Used: main.tf:37,40
  */

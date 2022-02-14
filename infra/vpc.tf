@@ -7,7 +7,7 @@
  * Description:
  *  - Utilizes the AWS VPC module to provision:
  *    - VPC
- *    - Subnets (public, private, and database)
+ *    - Subnets (public and private)
  *    - Internet Gateway
  *    - NAT Gateway + EIP
  *    - Route Tables
