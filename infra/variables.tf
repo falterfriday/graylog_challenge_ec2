@@ -39,6 +39,33 @@ variable "availability_zones" {
 }
 
 /*
+ * CERTIFICATE ARN
+ * Used: vpc.tf:30
+ */
+variable "certificate_arn" {
+  type        = string
+  description = "wildcard certificate arn"
+}
+
+/*
+ * HOSTED ZONE ID
+ * Used: route53.tf:16
+ */
+variable "route53_zone_id" {
+  type        = string
+  description = "route53 zone id"
+}
+
+/*
+ * HOSTED ZONE ID
+ * Used: route53.tf:16
+ */
+variable "route53_dns_record_name" {
+  type        = string
+  description = "domain name (e.g. hello.graylog.com)"
+}
+
+/*
  * PUBLIC SUBNET CIDR BLOCKS
  * Used: vpc.tf:32
  */
